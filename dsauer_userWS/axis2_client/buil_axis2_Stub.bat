@@ -1,0 +1,1 @@
+WSDL2Java -uri http://localhost:8084/axis2/services/dsauer_userWS?wsdl -s -d adb -p web.userWS

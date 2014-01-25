@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-417-SNAPSHOT. --><xs:schema xmlns:tns="http://service.web/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://service.web/">
+
+<xs:element name="WeatherData" type="tns:WeatherData"></xs:element>
+
+<xs:element name="WeatherDataResponse" type="tns:WeatherDataResponse"></xs:element>
+
+<xs:element name="calculateDistance" type="tns:calculateDistance"></xs:element>
+
+<xs:element name="calculateDistanceResponse" type="tns:calculateDistanceResponse"></xs:element>
+
+<xs:element name="cityCounty" type="tns:cityCounty"></xs:element>
+
+<xs:element name="cityCountyResponse" type="tns:cityCountyResponse"></xs:element>
+
+<xs:element name="citySearch" type="tns:citySearch"></xs:element>
+
+<xs:element name="citySearchResponse" type="tns:citySearchResponse"></xs:element>
+
+<xs:element name="distance" type="tns:distance"></xs:element>
+
+<xs:element name="distanceResponse" type="tns:distanceResponse"></xs:element>
+
+<xs:element name="getAllCityZIPs" type="tns:getAllCityZIPs"></xs:element>
+
+<xs:element name="getAllCityZIPsResponse" type="tns:getAllCityZIPsResponse"></xs:element>
+
+<xs:element name="getCityZIPs" type="tns:getCityZIPs"></xs:element>
+
+<xs:element name="getCityZIPsResponse" type="tns:getCityZIPsResponse"></xs:element>
+
+<xs:element name="getUSACity" type="tns:getUSACity"></xs:element>
+
+<xs:element name="getUSACityResponse" type="tns:getUSACityResponse"></xs:element>
+
+<xs:element name="getUSACounty" type="tns:getUSACounty"></xs:element>
+
+<xs:element name="getUSACountyResponse" type="tns:getUSACountyResponse"></xs:element>
+
+<xs:element name="getUSAState" type="tns:getUSAState"></xs:element>
+
+<xs:element name="getUSAStateResponse" type="tns:getUSAStateResponse"></xs:element>
+
+<xs:element name="getWeatherByUSZipCode" type="tns:getWeatherByUSZipCode"></xs:element>
+
+<xs:element name="getWeatherByUSZipCodeResponse" type="tns:getWeatherByUSZipCodeResponse"></xs:element>
+
+<xs:element name="getWorldCountryLang" type="tns:getWorldCountryLang"></xs:element>
+
+<xs:element name="getWorldCountryLangResponse" type="tns:getWorldCountryLangResponse"></xs:element>
+
+<xs:element name="searchCityUSA" type="tns:searchCityUSA"></xs:element>
+
+<xs:element name="searchCityUSAResponse" type="tns:searchCityUSAResponse"></xs:element>
+
+<xs:element name="searchWorld" type="tns:searchWorld"></xs:element>
+
+<xs:element name="searchWorldResponse" type="tns:searchWorldResponse"></xs:element>
+
+<xs:element name="stateSearch" type="tns:stateSearch"></xs:element>
+
+<xs:element name="stateSearchResponse" type="tns:stateSearchResponse"></xs:element>
+
+<xs:element name="worldCity" type="tns:worldCity"></xs:element>
+
+<xs:element name="worldCityResponse" type="tns:worldCityResponse"></xs:element>
+
+<xs:element name="worldCountry" type="tns:worldCountry"></xs:element>
+
+<xs:element name="worldCountryResponse" type="tns:worldCountryResponse"></xs:element>
+
+<xs:complexType name="worldCountry">
+<xs:sequence>
+<xs:element name="country" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="msg" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="worldCountryResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getWeatherByUSZipCode">
+<xs:sequence>
+<xs:element name="zip" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getWeatherByUSZipCodeResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="searchCityUSA">
+<xs:sequence>
+<xs:element name="zip" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="city" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="state" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="searchCityUSAResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="searchWorld">
+<xs:sequence>
+<xs:element name="city" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="prov" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="country" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="code" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="cont" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="reg" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="lang" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="searchWorldResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cityCounty">
+<xs:sequence>
+<xs:element name="county" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="msg" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cityCountyResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="worldCity">
+<xs:sequence>
+<xs:element name="city" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="msg" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="worldCityResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getUSAState">
+<xs:sequence>
+<xs:element name="state" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getUSAStateResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="distance">
+<xs:sequence>
+<xs:element name="zip1" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="zip2" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="msg" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="distanceResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCityZIPs">
+<xs:sequence>
+<xs:element name="msg" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCityZIPsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getUSACity">
+<xs:sequence>
+<xs:element name="city" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getUSACityResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getUSACounty">
+<xs:sequence>
+<xs:element name="county" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getUSACountyResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="calculateDistance">
+<xs:sequence>
+<xs:element name="zip1" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="zip2" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="calculateDistanceResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getWorldCountryLang">
+<xs:sequence>
+<xs:element name="countryCode" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getWorldCountryLangResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WeatherData">
+<xs:sequence>
+<xs:element name="zip" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="msg" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WeatherDataResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllCityZIPs">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllCityZIPsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="citySearch">
+<xs:sequence>
+<xs:element name="city" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="msg" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="citySearchResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="stateSearch">
+<xs:sequence>
+<xs:element name="state" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="msg" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="stateSearchResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

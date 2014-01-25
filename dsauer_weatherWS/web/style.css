@@ -1,0 +1,206 @@
+/* 
+Document   : style
+Created on : 26.05.2009., 20:59:55
+Author     : Davor Sauer
+Description:
+Purpose of the stylesheet follows.
+*/
+
+/* 
+TODO customize this sample style
+Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+body { margin: 0px;
+    padding: 0px;
+    font-family: verdana,arial,helvetica,sans-serif;
+    font-size: 10px;
+    line-height: 20px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+}
+
+h1 { font-size: 14px;
+    font-weight: bold;
+    color: rgb(215,103,53);
+}
+
+h2 { font-size: 12px;
+    font-weight: bold;
+    color: rgb(57,72,132);
+}
+
+h3 { font-size: 10px;
+    font-weight: bold;
+    color: rgb(57,72,132);
+}
+
+a:link,a:visited,a:active {
+    color:rgb(57,72,132);
+    text-decoration:none;
+    background-color:transparent;
+}
+
+a:hover { 	
+    color:rgb(215,103,53);
+    background-color:transparent;
+}
+
+/* --- Objekti ---*/
+#wrap {
+    position: relative;
+    width: 760px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#header {
+    background: transparent url(images/header.jpg) no-repeat scroll left top;
+    width: 760px;
+    height: 310px;
+    margin-top:15px;
+    margin-bottom:5px;
+}
+
+#top {
+    background: transparent url(images/top.gif) no-repeat scroll left top;
+    width: 760px;
+    height: 21px;
+}
+
+#bottom {
+    background: transparent url(images/bottom.gif) no-repeat scroll left top;
+    width: 760px;
+    height: 27px;
+}
+
+#content {
+    padding-left:10px;
+    padding-right:20px;
+}
+
+#menu {
+    font-size:11px;
+    font-weight:bold;
+    background: transparent;
+    width:350px;
+    height: 25px;
+    position:absolute;
+    top: 267px;
+    left:405px;
+    text-align:center;
+}
+
+#err {
+    color:red;
+    background-color:transparent;
+}
+
+#search {
+    width:730px;
+}
+
+#searchRes {
+    width:730px;
+}
+
+#result {
+    width:730px;
+}
+
+
+.bankRac {
+    width:300px;
+    height:140px;
+    color:maroon;
+    background: transparent url(images/card.jpg) no-repeat scroll left top;
+    padding-left:10px;
+    padding-top:30px;
+}
+
+td.state {
+    background-color:rgb(230,245,255);
+    height:8px;
+}
+
+span.state {
+    color:rgb(57,72,132);
+    font-weight:bold;
+    font-size:12px;
+}
+
+span.county {
+    color:orange;
+    font-weight:bold;
+    font-size:10px;
+}
+
+span.actualPg {
+    color:orange;
+    font-weight:bold;
+    font-size:10px;
+}
+
+#wLeftData {
+    width:400px;
+    float:left;
+}
+
+#wRightData {
+    width:300px;
+    float:left;
+}
+
+#gmap {
+    width:290px;
+    height:300px;
+    border-style:solid;
+    border-color:silver;
+}
+
+.weatherTitle {
+    font-size:12px;
+    font-weight:bold;
+    background-color:rgb(230,245,255);
+    color: orange;
+    padding-left:20px;
+}
+
+td.icon {
+    width:10%;
+}
+
+span.datum {
+    font-size:8px;
+    color:gray;
+}
+
+.drop_menu {
+    text-align:left;
+    position:absolute;
+    top: 25px;
+    width:190px;
+    border: 1px solid rgb(226,156,99);
+    background-color:rgb(180,180,180);
+    padding-left:5px;
+}
+
+
+span.dist {
+    color:rgb(57,72,132);
+    font-weight:bold;
+    font-size:11px;
+}
+
+a:link.country,a:visited.country,a:active.country {
+    color:orange;
+    font-weight:bold;
+    font-size:10px;
+}
+
+a:hover.country {
+    color:rgb(215,103,53);
+    background-color:transparent;
+    font-size:10px;
+    font-weight:bold;
+}

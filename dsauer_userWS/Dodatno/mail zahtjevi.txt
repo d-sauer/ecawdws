@@ -1,0 +1,15 @@
+zahtjevi@localhost
+
+user('dsauer','anita');
+
+cityzips();
+
+countrysearch('K');
+
+citycounty('L');
+
+citysearch('LAS');
+
+data('44333');
+
+distance('00616','00544');

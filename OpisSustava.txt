@@ -1,0 +1,27 @@
+-- Kratak opis sustava --
+
+dsauer_userWS
+	Web servis koji se pokrece na Apache Tomcatu, korištenjem Axis2.
+        Ovaj servis služi za rad s korisnièkim raèunima, te prima zahtijeve putem maila od korisnika.
+        Zahtjevi koji nisu podržani od ovog sustava (zahtjevi vrste 4 )koji se prime putem maila, 
+	šalju se web servisu dsauer_weatherWS, koji ovisno o zahtjevu generira
+        XML i HTML datoteke, te vraæa odgovor userWS servisu, s lokacijama generiranih datoteka, koje se dalje 
+        prosljeðuju korisniku koji je uputio zahtjev. Zahtjevi koji su poslani mailom se naplaèuju.
+
+
+dsauer_weatherWS
+	web aplikacija koja ujedno i prikazuje web stranicu (korištenjem ajax-a), koja omoguæava prikazivanje vremenskih prognoza, raèunanje udaljenosti
+        izmeðu gradova i prikaz informacijama o zemljama i gradovima svijeta.
+        Informacijama koje pruža ovaj servis mogu pristupiti samo korisnici koji su registrirani na web servisu userWS.
+        Putem web stranice se mogu i registrirati korisnici, te se taj korisnièki raèun kreira na userWS.
+	
+	Prilikom pretraživanja informacija o vremenskim prognozama, web aplikacija koristi lokalnu bazu za pohranu podataka.
+        Ako podaci o traženom gradu ne postoje u bazi, tada sustav kontaktira weather bug web servis, ta dohvaæa potrebne 
+	informacije koje pohranjuje u bazu. Na taj naèin se sa što veæim brojem korištenja poveæava i kolièina informacija
+	o vremenskim prognozama u bazi, koje se osvježavaju svakih nekoliko minuta (zadano u konfiguracijskoj datoteci
+        options.properties).
+	
+
+       
+Obe web aplikacije su i web servisi sa WSDL suèeljem, kako bi usluge tih servisa mogli koristiti i druge web ili desktop aplikacije.
+Pomoæu tih suèelja, aplikacije meðusobno komuniciraju, kako bi se mogli logirati korisnici, i poslati i obraditi zahtijevi korisnika.

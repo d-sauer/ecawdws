@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<axis2 xmlns="http://www.netbeans.org/ns/axis2/1">
+    <service name="dsauer_userWS">
+        <service-class>web.services.dsauer_userWS</service-class>
+    </service>
+    <libraries>
+        <library-ref name="mail.jar"/>
+        <library-ref name="mysql-connector-java-5.1.7-bin.jar"/>
+    </libraries>
+</axis2>

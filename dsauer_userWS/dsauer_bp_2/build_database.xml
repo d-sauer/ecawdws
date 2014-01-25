@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="dsauer_npazweb" default="all" basedir=".">
+    <property file="options.properties" prefix="prop"/>
+
+    <property name="host" value="${prop.host}" />   
+    <property name="db.driver" value="${prop.db.driver}" />
+    <property name="driver.mysql" value="${basedir}\${prop.mysql.lib}" />
+
+
+    <property name="db.name" value="${prop.db.name}" />
+    <property name="db.url" value="${prop.db.url}" />
+    <property name="db.user" value="${prop.db.user}" />
+    <property name="db.pass" value="${prop.db.pass}" />
+
+
+    <target name="listFile">
+        <echo message="${driver.mysql}"/>
+        
+        <fileset id="dist.contents" dir="."/>
+        <property name="prop.dist.contents" refid="dist.contents"/>
+        <echo>${prop.dist.contents}</echo>
+    </target>
+
+   
+    <target name="admin" >
+        <!--database admin url-->
+        <input message="Unesite lokaciju računala (host) na kojem se nalazi baza:" addproperty="db.host.admin" defaultvalue="${host}" />
+        <property name="db.url.admin" value="jdbc:mysql://${db.host.admin}/mysql" />
+
+        <!--admin name-->
+        <input message="Unesite korisničko ime za administratora:" addproperty="unos.db.user.admin" defaultvalue="" />
+        <property name="db.user.admin" value="${unos.db.user.admin}" />
+
+        <!--admin pass-->
+        <input message="Unesite lozinku za administratora:" addproperty="unos.db.pass.admin" defaultvalue="" />
+        <property name="db.pass.admin" value="${unos.db.pass.admin}" />
+    </target>
+
+
+    <target name="create" depends="createDatabase, createUser, createTables">
+    </target>
+
+    <target name="createDatabase" depends="admin">
+        <echo message="db.driver: ${db.driver}"/>
+        <echo message="classpath: ${driver.mysql}" />
+        <sql driver="${db.driver}" url="${db.url.admin}" userid="${db.user.admin}" password="${db.pass.admin}" classpath="${driver.mysql}" >
+            CREATE DATABASE IF NOT EXISTS ${db.name};
+        </sql>
+    </target>
+
+    <target name="createUser" depends="createDatabase">
+        <sql driver="${db.driver}" url="${db.url.admin}" userid="${db.user.admin}" password="${db.pass.admin}" classpath="${driver.mysql}" >
+            CREATE USER ${db.user}@${host} IDENTIFIED BY '${db.pass}';
+        </sql>
+
+        <sql driver="${db.driver}" url="${db.url.admin}" userid="${db.user.admin}" password="${db.pass.admin}" classpath="${driver.mysql}" >
+            GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON `${db.name}`.*
+                TO `${db.user}`@`${host}` IDENTIFIED BY '${db.pass}';
+        </sql>
+    </target>
+
+    <target name="createTables" depends="createDatabase">
+        <sql driver="${db.driver}" url="${db.url}" userid="${db.user}" password="${db.pass}" classpath="${driver.mysql}" >
+            CREATE  TABLE IF NOT EXISTS `user` (
+              `idUser` INT NOT NULL AUTO_INCREMENT ,
+              `ime` VARCHAR(20) NULL ,
+              `prezime` VARCHAR(30) NULL ,
+              `email` VARCHAR(50) UNIQUE NOT NULL ,
+              `korIme` VARCHAR(20) UNIQUE NOT NULL ,
+              `lozinka` VARCHAR(30) NOT NULL ,
+              `stanjeRac` DOUBLE NULL ,
+              PRIMARY KEY (`idUser`) )
+            ENGINE = InnoDB
+            DEFAULT CHARACTER SET = utf8
+            COLLATE = utf8_general_ci;
+
+            CREATE  TABLE IF NOT EXISTS `log` (
+              `idUser` INT NOT NULL ,
+              `datum` DATETIME NULL ,
+              `url` VARCHAR(100) NULL ,
+              `zahtjev` VARCHAR(200) NULL ,
+              INDEX `fk_log_user` (`idUser` ASC) ,
+              CONSTRAINT `fk_log_user`
+                FOREIGN KEY (`idUser` )
+                REFERENCES `dsauer_bp_2`.`user` (`idUser` )
+                ON DELETE RESTRICT
+                ON UPDATE NO ACTION)
+            ENGINE = InnoDB
+            DEFAULT CHARACTER SET = utf8
+            COLLATE = utf8_general_ci;
+        </sql>
+    </target>
+
+
+<!--brisanje-->
+    <target name="delete" depends="deleteDB, deleteUser" ></target>
+
+    <target name="deleteTable">
+        <sql driver="${db.driver}" url="${db.url}" userid="${db.user}" password="${db.pass}" classpath="${driver.mysql}" >
+           DROP TABLE IF EXISTS `log` ;
+           DROP TABLE IF EXISTS `user` ;
+        </sql>
+    </target>
+
+    <target name="deleteDB" depends="admin, deleteTable">
+        <sql driver="${db.driver}" url="${db.url.admin}" userid="${db.user.admin}" password="${db.pass.admin}" classpath="${driver.mysql}" >
+            DROP DATABASE IF EXISTS `${db.name}`;
+        </sql>
+    </target>
+
+    <target name="deleteUser" depends="admin">
+        <sql driver="${db.driver}" url="${db.url.admin}" userid="${db.user.admin}" password="${db.pass.admin}" classpath="${driver.mysql}" >
+            DROP USER `${db.user}`@`${host}`;
+        </sql>
+    </target>
+
+</project>
